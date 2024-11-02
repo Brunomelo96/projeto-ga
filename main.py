@@ -11,7 +11,7 @@ dataset_transform = transforms.Compose(
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
 
-base_path = '/content/gdrive/MyDrive/datasets/Candidatos/GA'
+base_path = '/content/gdrive/MyDrive/datasets/GA'
 # base_path = '.'
 
 train = datasets.ImageFolder(
