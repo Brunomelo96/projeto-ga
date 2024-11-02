@@ -11,8 +11,8 @@ dataset_transform = transforms.Compose(
         transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
     ])
 
-# base_path = '/content/gdrive/MyDrive/datasets/Candidatos/GA'
-base_path = '.'
+base_path = '/content/gdrive/MyDrive/datasets/Candidatos/GA'
+# base_path = '.'
 
 train = datasets.ImageFolder(
     root=f'{base_path}/train',
@@ -24,6 +24,6 @@ test = datasets.ImageFolder(
     transform=dataset_transform
 )
 
-run_net([16, 20, 14, 5, 2, 4], train, test,  4)
-# best = run(train, test, base_path)
-# print(best, "best")
+# run_net([16, 20, 14, 5, 2, 4], train, test,  4)
+best = run(train, test, base_path)
+print(best, "best")
