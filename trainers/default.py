@@ -8,6 +8,7 @@ from helpers.plotters import plot_metrics, plot_confusion_matrix
 
 def train(model, trainloader, testloader, name, num_epochs=4, base_path='.'):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+    print(device, 'device')
     model.to(device)
     criterion = nn.CrossEntropyLoss()
     optimizer = optim.SGD(model.parameters(), lr=0.01)
