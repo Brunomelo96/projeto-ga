@@ -6,7 +6,7 @@ from torch.utils.data import DataLoader
 from trainers.default import train
 from models.basic import Net
 
-batch_size = 256
+batch_size = 128
 
 
 def run_net(hyperparameters, train_dataset, test_dataset, epochs=4, base_path='.'):

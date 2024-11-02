@@ -4,13 +4,17 @@ import torchvision.transforms as transforms
 import webdataset as wds
 import torchvision.datasets as datasets
 from math import inf
-max_iters = 40
-max_pop = 20
 cross_prob = .5
 mut_prob = .01
 
 min_filters = 10
 max_filters = 50
+# max_iters = 16
+# max_pop = 10
+# epochs = 16
+
+max_iters = 40
+max_pop = 20
 epochs = 64
 
 kernels = [2, 3, 5]
