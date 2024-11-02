@@ -11,11 +11,11 @@ min_filters = 10
 max_filters = 50
 # max_iters = 16
 # max_pop = 10
-# epochs = 16
+# epochs = 32
 
 max_iters = 40
 max_pop = 20
-epochs = 64
+epochs = 32
 
 kernels = [2, 3, 5]
 
