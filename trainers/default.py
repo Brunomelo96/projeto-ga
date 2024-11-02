@@ -2,6 +2,7 @@ import torch.optim as optim
 import torch
 import torch.nn as nn
 from helpers.metrics import get_metrics
+from torcheval.metrics.functional import multiclass_f1_score, multiclass_recall, multiclass_precision, multiclass_accuracy
 from helpers.plotters import plot_metrics, plot_confusion_matrix
 
 
@@ -115,6 +116,14 @@ def train(model, trainloader, testloader, name, num_epochs=4):
 
         y_true_tensor = torch.tensor(y_true)
         y_pred_tensor = torch.tensor(y_pred)
+        f1 = multiclass_f1_score(y_pred_tensor, y_true_tensor, num_classes=90)
+        recall = multiclass_recall(y_pred_tensor, y_true_tensor, num_classes=90)
+        precision = multiclass_precision(y_pred_tensor, y_true_tensor, num_classes=90)
+        # acc = multiclass_accuracy(y_pred_tensor, y_true_tensor, num_classes=90)
+        f1s.append(f1.cpu().numpy())
+        recalls.append(recall.cpu().numpy())
+        precisions.append(precision.cpu().numpy())
+        print(f1, recall, precision, "scores")
         # print(y_true_tensor, "y_true_tensor")
         # print(y_pred_tensor, "y_pred_tensor")
         # precision, recall, f1 = get_metrics(y_true_tensor, y_pred_tensor)

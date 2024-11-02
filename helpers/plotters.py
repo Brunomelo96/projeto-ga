@@ -31,16 +31,16 @@ def plot_metrics(train_loss, test_loss, train_acc, test_acc, precision, recall, 
     plt.savefig(f'{filepath}{loss_and_acc_path}')
     plt.close()
 
-    # plt.plot(epochs_array, precision, label='precision')
-    # plt.plot(epochs_array, recall, label='recall')
-    # plt.plot(epochs_array, f1, label='f1')
+    plt.plot(epochs_array, precision, label='precision')
+    plt.plot(epochs_array, recall, label='recall')
+    plt.plot(epochs_array, f1, label='f1')
 
-    # plt.title('Metrics')
-    # plt.xlabel('Epochs')
-    # plt.legend()
+    plt.title('Metrics')
+    plt.xlabel('Epochs')
+    plt.legend()
 
-    # plt.savefig(f'{filepath}_scores.png')
-    # plt.close()
+    plt.savefig(f'{filepath}_scores.png')
+    plt.close()
 
 
 def plot_confusion_matrix(model, test_loader, filepath):
