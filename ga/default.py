@@ -97,7 +97,6 @@ def run(train_dataset, test_dataset, base_path='.'):
         population = []
         for j in range(int(max_pop/2)):
             children = crossover(fittest[0], fittest[1], cross_prob)
-            print(children, 'children')
             children = mutate_children(children[0], children[1], mut_prob)
             population = population + children
 
