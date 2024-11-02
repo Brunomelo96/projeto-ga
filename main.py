@@ -8,5 +8,5 @@ from ga.default import run
 # write_images('./all.zip', './train.tar', './test.tar', '0.2', None)
 # zip_writer
 # write_images('./original_dataset', './train', './test')
-best = run('.')
+best = run('/content/gdrive/MyDrive/datasets/Candidatos/GA')
 print(best, "best")
