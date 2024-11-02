@@ -8,6 +8,9 @@ from helpers.plotters import plot_metrics, plot_confusion_matrix
 
 def train(model, trainloader, testloader, name, num_epochs=4, base_path='.'):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+
+    torch.cuda.empty_cache()
+    torch.cuda.set_per_process_memory_fraction(1.)
     print(device, 'device')
     model.to(device)
     criterion = nn.CrossEntropyLoss()

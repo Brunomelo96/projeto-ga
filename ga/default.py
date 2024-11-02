@@ -10,7 +10,7 @@ mut_prob = .01
 min_filters = 10
 max_filters = 50
 # max_iters = 16
-# max_pop = 10
+# max_pop = 20
 # epochs = 32
 
 max_iters = 40
