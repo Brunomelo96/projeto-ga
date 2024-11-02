@@ -12,24 +12,18 @@ dataset_transform = transforms.Compose(
     ])
 
 base_path = '/content/gdrive/MyDrive/datasets/Candidatos/GA'
+# base_path = '.'
 
 train = datasets.ImageFolder(
     root=f'{base_path}/train',
-    # root="./train",
     transform=dataset_transform
 )
 # validation dataset
 test = datasets.ImageFolder(
     root=f'{base_path}/test',
-    # root="./test",
     transform=dataset_transform
 )
 
 # run_net([16, 20, 14, 5, 2, 4], train, test,  4)
-# tar writer
-# write_images('./all.zip', './train.tar', './test.tar', '0.2', None)
-# zip_writer
-# write_images('./original_dataset', './train', './test')
-# best = run('/content/gdrive/MyDrive/datasets/Candidatos/GA')
-best = run(train, test)
+best = run(train, test, base_path)
 print(best, "best")

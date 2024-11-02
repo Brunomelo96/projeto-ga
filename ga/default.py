@@ -4,7 +4,7 @@ import torchvision.transforms as transforms
 import webdataset as wds
 import torchvision.datasets as datasets
 from math import inf
-max_iters = 20
+max_iters = 40
 max_pop = 20
 cross_prob = .5
 mut_prob = .01
@@ -50,13 +50,7 @@ def mutate(gene, prob):
     return new_gene
 
 
-def run(train_dataset, test_dataset):
-    dataset_transform = transforms.Compose(
-        [
-            transforms.ToTensor(),
-            transforms.Normalize((0.5, 0.5, 0.5), (0.5, 0.5, 0.5))
-        ])
-
+def run(train_dataset, test_dataset, base_path='.'):
     population = []
     # initialize population
     for i in range(max_pop):
@@ -72,7 +66,7 @@ def run(train_dataset, test_dataset):
         i += 1
         for j, gene in enumerate(population):
             print(f'{j} gene: {gene}')
-            acc = run_net(gene, train_dataset, test_dataset, epochs)
+            acc = run_net(gene, train_dataset, test_dataset, epochs, base_path)
             print(f'Fit: ({1-acc}), Acc: {acc}')
             fits.append((1 - acc))
 

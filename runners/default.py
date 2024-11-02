@@ -9,7 +9,7 @@ from models.basic import Net
 batch_size = 256
 
 
-def run_net(hyperparameters, train_dataset, test_dataset, epochs=4):
+def run_net(hyperparameters, train_dataset, test_dataset, epochs=4, base_path='.'):
     print(hyperparameters, "hyperparameters")
     net = Net(
         hyperparameters[0],
@@ -35,6 +35,6 @@ def run_net(hyperparameters, train_dataset, test_dataset, epochs=4):
     )
 
     acc = train(net, trainloader, testloader,
-                f'{hyperparameters[0]}_{hyperparameters[1]}_{hyperparameters[2]}_{hyperparameters[3]}_{hyperparameters[4]}_{hyperparameters[5]}_{epochs}', epochs)
+                f'{hyperparameters[0]}_{hyperparameters[1]}_{hyperparameters[2]}_{hyperparameters[3]}_{hyperparameters[4]}_{hyperparameters[5]}_{epochs}', epochs, base_path)
 
     return acc

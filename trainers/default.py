@@ -6,7 +6,7 @@ from torcheval.metrics.functional import multiclass_f1_score, multiclass_recall,
 from helpers.plotters import plot_metrics, plot_confusion_matrix
 
 
-def train(model, trainloader, testloader, name, num_epochs=4):
+def train(model, trainloader, testloader, name, num_epochs=4, base_path='.'):
     device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
     model.to(device)
     criterion = nn.CrossEntropyLoss()
@@ -134,7 +134,7 @@ def train(model, trainloader, testloader, name, num_epochs=4):
         # if epoch % 2 == 0:
         #     scheduler.step()
     plot_metrics(train_loss, test_loss, train_acc,
-                 test_acc, precisions, recalls, f1s, name)
-    plot_confusion_matrix(model, testloader, name)
+                 test_acc, precisions, recalls, f1s, f'{base_path}/{name}')
+    plot_confusion_matrix(model, testloader, f'{base_path}/{name}')
 
     return train_acc[len(train_acc) - 1]
