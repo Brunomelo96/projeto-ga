@@ -11,7 +11,7 @@ def train(model, trainloader, testloader, name, num_epochs=4, base_path='.'):
     print(device, 'device')
     model.to(device)
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.SGD(model.parameters(), lr=0.1)
+    optimizer = optim.SGD(model.parameters(), lr=0.01)
     # criterion = nn.BCELoss()
 
     # optimizer = torch.optim.RMSprop(
