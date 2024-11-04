@@ -7,6 +7,8 @@ train
 test
 all.zip
 original_dataset
+doc.txt
+results
 
 # C extensions
 *.so

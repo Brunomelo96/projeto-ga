@@ -141,4 +141,4 @@ def train(model, trainloader, testloader, name, num_epochs=4, base_path='.'):
                  test_acc, precisions, recalls, f1s, f'{base_path}/{name}')
     plot_confusion_matrix(model, testloader, f'{base_path}/{name}')
 
-    return train_acc[len(train_acc) - 1]
+    return test_acc[len(test_acc) - 1]

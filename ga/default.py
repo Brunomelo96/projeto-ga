@@ -9,12 +9,12 @@ mut_prob = .01
 
 min_filters = 10
 max_filters = 50
-# max_iters = 16
-# max_pop = 20
-# epochs = 32
+# max_iters = 2
+# max_pop = 4
+# epochs = 2
 
-max_iters = 40
-max_pop = 20
+max_iters = 16
+max_pop = 10
 epochs = 32
 
 kernels = [2, 3, 5]
@@ -70,6 +70,7 @@ def run(train_dataset, test_dataset, base_path='.'):
         i += 1
         for j, gene in enumerate(population):
             print(f'{j} gene: {gene}')
+            print(f'Iter - {i}')
             acc = run_net(gene, train_dataset, test_dataset, epochs, base_path)
             print(f'Fit: ({1-acc}), Acc: {acc}')
             fits.append((1 - acc))
